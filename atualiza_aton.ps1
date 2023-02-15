@@ -1,3 +1,12 @@
+# Mata todos os processos do Ambar
+if (Get-Process -Name "Ambar" -ErrorAction SilentlyContinue) {
+    Get-Process "Ambar" | ForEach-Object { $_.Kill() }
+    Write-Host "Aton foi fechado forçadamente. Tchau, Aton! 😢"
+}
+
+# Mensagem para não abrir o Aton
+Write-Host "Não abra o Aton enquanto ele se renova, a menos que você queira ver faíscas voando! 🔥"
+
 # Definir o caminho para a pasta de destino
 $destination = "C:\Ambar"
 
@@ -21,4 +30,4 @@ foreach ($item in $zip.items()) {
 
 # Remover o arquivo zip original
 Remove-Item "$destination\repository.zip"
-Write-Host "Sucesso!"
+Write-Host "Sucesso! Você pode abrir o Aton novamente. 🎉"
